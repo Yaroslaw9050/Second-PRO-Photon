@@ -1,0 +1,65 @@
+{
+    "name": "PlayerInput",
+    "maps": [
+        {
+            "name": "PlayerController",
+            "id": "f4e8e3a6-569e-4f3e-9c6c-7cae63a99ca8",
+            "actions": [
+                {
+                    "name": "Use",
+                    "type": "Button",
+                    "id": "6f03aa60-c94e-4cc3-9035-015729d4fd32",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "b8a69d3a-49bf-4915-a64f-3e64d7943248",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9a4847d9-0aed-4790-9eb7-601a81a75ce2",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c95d555c-e333-4418-a67c-6b5a01579159",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ccb945bb-039e-4d7d-a9e5-3afab271f207",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
