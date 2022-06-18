@@ -20,7 +20,7 @@ public class CameraFlow : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(mainCharacter.transform.position - transform.position);
     }
 
-    private void SetOffset(Vector3 offset)
+    public void SetOffset(Vector3 offset)
     {
         if(offset.z < 0) cameraOffset = offset * 10; // Move Down
 

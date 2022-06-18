@@ -7,6 +7,7 @@ using Photon.Pun;
 public class PlayerController : MonoBehaviourPunCallbacks
 {
     [SerializeField] private float rotateSpeed;
+    [SerializeField] private CameraFlow myCamera;
     private PhotonView pv;
     private PlayerInput inputActions;
     private CharacterController controller;
@@ -32,6 +33,15 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
         inputActions.PlayerController.Run.started += OnRunActions;
         inputActions.PlayerController.Run.canceled += OnRunActions;
+
+        inputActions.PlayerController.Movement.started += OnCameraMovement;
+        inputActions.PlayerController.Movement.performed += OnCameraMovement;
+        inputActions.PlayerController.Movement.canceled += OnCameraMovement;
+
+        if(!pv.IsMine)
+        {
+            Destroy(myCamera.gameObject);
+        }
     }
     private void OnEnable()
     {
@@ -49,6 +59,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
         currentMovement.z = movementInput.y;
 
         isWalk = movementInput.x != 0 || movementInput.y != 0;
+    }
+    private void OnCameraMovement(InputAction.CallbackContext context)
+    {
+        myCamera.SetOffset(currentMovement);
     }
     private void OnRunActions(InputAction.CallbackContext context)
     {
@@ -83,4 +97,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
         controller.Move(currentMovement * Time.fixedDeltaTime);
     }
 
+    public void Respawn()
+    {
+        controller.enabled = false;
+        transform.position = Vector3.up;
+        controller.enabled = true;
+    }
 }
